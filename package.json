@@ -1,0 +1,27 @@
+{
+  "name": "gdoc-processor",
+  "description": "",
+  "version": "0.0.0",
+  "private": true,
+  "author": "Aldo Bucchi <aldo.bucchi@gmail.com>",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "dependencies": {
+    "underscore": "~1.5.1",
+    "coffee-script": "~1.6.3",
+    "express": "~3.3.5",
+    "request": "~2.27.0",
+    "jQuery": "~1.7.4",
+    "jsdom": "~0.8.2",
+    "xmlhttprequest": "~1.6.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.9.0",
+    "chai": "~1.5.0"
+  },
+  "scripts": {
+    "start": "./node_modules/coffee-script/bin/coffee server.coffee",
+    "test": "make test"
+  }
+}
