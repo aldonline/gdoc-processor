@@ -55,6 +55,19 @@ app.get '/doc', ( req1, res1 ) ->
   
   req2.end()
 
+
+app.post '/doc', (req, res) ->
+  reply = (d) ->
+    res.writeHead 200, 'Content-Type': 'application/json'
+    res.end JSON.stringify d
+  chunks = []
+  req.setEncoding 'utf8'
+  req.on 'data', (chunk) -> chunks.push chunk
+  req.on 'end', ->
+    processor chunks.join(''), (e, data) ->
+      reply if e? then error: e.toString() else result: data
+
+
 render_html = ( data ) ->
   data2 = _.clone data
   data2.styles = '(RENDERED BELOW AS HTML)'
